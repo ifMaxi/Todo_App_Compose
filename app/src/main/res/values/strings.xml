@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ToDo Compose</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_todo">New ToDo</string>
+    <string name="write_some">Write something</string>
+    <string name="update_todo">Update ToDo</string>
+    <string name="add_todo">Add ToDo</string>
+</resources>
