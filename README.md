@@ -12,6 +12,7 @@ I have created a simple TODO app that creates, saves and deletes items (tasks) t
 - Jetpack Compose for the UI
 - Material Design 3
 - Room for the database
+- Flow
 - Manual dependency injection
 - Compose navigation
 - ViewModel
