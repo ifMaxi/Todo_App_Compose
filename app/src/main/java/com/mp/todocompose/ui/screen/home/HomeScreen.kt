@@ -34,32 +34,29 @@ import com.mp.todocompose.ui.theme.ToDoComposeTheme
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    onNavAddItem: () -> Unit,
-    onNavToItem: () -> Unit
+    onNavigateToAddItem: () -> Unit
 ) {
     val viewModel: HomeScreenViewModel = viewModel(factory = HomeScreenViewModel.Factory)
     val state by viewModel.homeUiState.collectAsState()
 
     Scaffold(
         floatingActionButton = {
-            NewItemFab(onNew = onNavAddItem) // Nav addItem
+            NewItemFab(onNewItem = onNavigateToAddItem)
         },
         floatingActionButtonPosition = FabPosition.Center
     ) { paddingValues ->
         PrincipalList(
             onDel = { viewModel.deleteItem(it) },
-            onNav = onNavToItem,
             itemList = state.todoList,
             modifier = modifier.padding(paddingValues)
         )
     }
 }
 
-@Composable // TEST
+@Composable
 fun PrincipalList(
     modifier: Modifier = Modifier,
     onDel: (TodoEntity) -> Unit,
-    onNav: () -> Unit,
     itemList: List<TodoEntity>
 ) {
     LazyColumn(
@@ -68,8 +65,7 @@ fun PrincipalList(
         items(itemList) {todo ->
             ItemCard(
                 todo = todo,
-                onDelete = { onDel(todo) },
-                onNavigate = onNav // Nav toItem
+                onDelete = { onDel(todo) }
             )
             Divider(thickness = 2.dp)
         }
@@ -79,11 +75,11 @@ fun PrincipalList(
 @Composable
 fun NewItemFab(
     modifier: Modifier = Modifier,
-    onNew: () -> Unit // Navigation
+    onNewItem: () -> Unit
 ) {
     ExtendedFloatingActionButton(
         modifier = modifier.padding(all = 8.dp),
-        onClick = onNew,
+        onClick = onNewItem,
         elevation = FloatingActionButtonDefaults.elevation(4.dp)
     ) {
         Icon(
@@ -99,6 +95,6 @@ fun NewItemFab(
 @Composable
 fun FabButtonPrev() {
     ToDoComposeTheme {
-        NewItemFab(onNew = {})
+        NewItemFab(onNewItem = {})
     }
 }

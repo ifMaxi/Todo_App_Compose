@@ -15,14 +15,15 @@ fun TodoNavGraph(
 ) {
     val navController: NavHostController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Destinations.HOME_SCREEN) {
+    NavHost(
+        modifier = modifier,
+        navController = navController,
+        startDestination = Destinations.HOME_SCREEN
+    ) {
         composable(Destinations.HOME_SCREEN) {
             HomeScreen(
-                onNavAddItem = {
+                onNavigateToAddItem = {
                     navController.navigate(Destinations.DIALOG_ITEM)
-                },
-                onNavToItem = {
-                    navController.navigate(Destinations.ITEM_CARD)
                 }
             )
         }

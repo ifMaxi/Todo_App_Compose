@@ -1,6 +1,5 @@
 package com.mp.todocompose.ui.screen.home.components
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,16 +27,13 @@ import com.mp.todocompose.ui.theme.ToDoComposeTheme
 fun ItemCard(
     modifier: Modifier = Modifier,
     todo: TodoEntity,
-    onDelete: () -> Unit,
-    //onComplete: (Boolean) -> Unit,
-    onNavigate: () -> Unit
+    onDelete: () -> Unit
 ) {
     val checkedState = rememberSaveable { mutableStateOf(false) }
 
     ElevatedCard(
         modifier = modifier
             .padding(all = 10.dp)
-            .clickable { onNavigate() } // Nav toItem
     ) {
         Row(
             modifier = Modifier
@@ -72,8 +68,7 @@ fun ItemPrev() {
     ToDoComposeTheme {
         ItemCard(
             todo = TodoEntity(id = 1522, todoText = "Testing", isComplete = false),
-            onDelete = {},
-            onNavigate = {}
+            onDelete = {}
         )
     }
 }

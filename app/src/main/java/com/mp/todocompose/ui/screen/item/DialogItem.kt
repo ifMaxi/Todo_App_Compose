@@ -32,7 +32,7 @@ import com.mp.todocompose.ui.theme.ToDoComposeTheme
 @Composable
 fun ItemDialog(
     modifier: Modifier = Modifier,
-    onNavBack: () -> Unit
+    onNavigateBack: () -> Unit
 ) {
     val viewModel: DialogViewModel = viewModel(factory = DialogViewModel.Factory)
 
@@ -54,10 +54,10 @@ fun ItemDialog(
         )
         Spacer(modifier = Modifier.height(30.dp))
         ActionButtons(
-            onCancel = onNavBack,
+            onCancel = onNavigateBack,
             onSave = {
                 viewModel.saveItem()
-                onNavBack()
+                onNavigateBack()
             }
         )
     }
