@@ -29,7 +29,7 @@ fun TodoNavGraph(
         }
         composable(Destinations.DIALOG_ITEM) {
             ItemDialog(
-                onNavBack = {
+                onNavigateBack = {
                     navController.popBackStack()
                 }
             )
