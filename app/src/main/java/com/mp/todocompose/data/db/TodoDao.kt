@@ -8,6 +8,11 @@ import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * DAO: Data Access Object
+ *
+ * Methods to interact with the table of entities [TodoEntity]
+ */
 @Dao
 interface TodoDao {
     @Query("SELECT * FROM todo")

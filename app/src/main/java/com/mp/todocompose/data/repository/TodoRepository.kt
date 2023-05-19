@@ -3,6 +3,9 @@ package com.mp.todocompose.data.repository
 import com.mp.todocompose.data.db.TodoEntity
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * Data source.
+ */
 interface TodoRepository {
     fun getAllTodosStream(): Flow<List<TodoEntity>>
 

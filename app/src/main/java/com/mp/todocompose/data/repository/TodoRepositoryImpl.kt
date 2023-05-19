@@ -4,6 +4,9 @@ import com.mp.todocompose.data.db.TodoDao
 import com.mp.todocompose.data.db.TodoEntity
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * [TodoRepository] implementation
+ */
 class TodoRepositoryImpl(
     private val todoDao: TodoDao
 ): TodoRepository {

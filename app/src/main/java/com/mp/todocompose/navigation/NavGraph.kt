@@ -9,6 +9,15 @@ import androidx.navigation.compose.rememberNavController
 import com.mp.todocompose.ui.screen.home.HomeScreen
 import com.mp.todocompose.ui.screen.item.ItemDialog
 
+/**
+ * Navigation screen.
+ *
+ * It contains the destinations that will lead to the main screen of the app and the creation of the item.
+ *
+ * [HomeScreen] main destination.
+ * [ItemDialog] second destination.
+ */
+
 @Composable
 fun TodoNavGraph(
     modifier: Modifier = Modifier
