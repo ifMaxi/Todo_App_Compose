@@ -9,7 +9,6 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.mp.todocompose.TodoApplication
 import com.mp.todocompose.data.db.TodoEntity
 import com.mp.todocompose.data.repository.TodoRepository
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -19,10 +18,6 @@ import kotlinx.coroutines.launch
 class HomeScreenViewModel(
     private val todoRepository: TodoRepository
 ): ViewModel() {
-    private val _uiState = MutableStateFlow(HomeState())
-    val homeState: StateFlow<HomeState>
-        get() = _uiState
-
     val homeUiState: StateFlow<HomeState> =
         todoRepository.getAllTodosStream().map { HomeState(it) }
             .stateIn(
@@ -34,12 +29,6 @@ class HomeScreenViewModel(
     fun deleteItem(item: TodoEntity) {
         viewModelScope.launch {
             todoRepository.deleteTodo(item)
-        }
-    }
-
-    fun updateItem(item: TodoEntity) {
-        viewModelScope.launch {
-            todoRepository.updateTodo(item)
         }
     }
 

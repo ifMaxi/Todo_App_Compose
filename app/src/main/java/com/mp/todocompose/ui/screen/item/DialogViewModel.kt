@@ -17,9 +17,6 @@ class DialogViewModel(
 ): ViewModel() {
     var textChange = mutableStateOf("")
 
-    //var inputText by mutableStateOf(DialogUiState())
-        //private set
-
     fun onTextChange(input: String) {
         textChange.value = input
     }
