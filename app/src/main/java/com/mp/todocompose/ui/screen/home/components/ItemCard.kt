@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -18,10 +19,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.mp.todocompose.data.db.TodoEntity
 import com.mp.todocompose.ui.theme.ToDoComposeTheme
+import com.mp.todocompose.ui.theme.montserratFamily
 
 @Composable
 fun ItemCard(
@@ -33,7 +37,8 @@ fun ItemCard(
 
     ElevatedCard(
         modifier = modifier
-            .padding(all = 10.dp)
+            .padding(all = 10.dp),
+        elevation = CardDefaults.elevatedCardElevation(4.dp)
     ) {
         Row(
             modifier = Modifier
@@ -50,7 +55,12 @@ fun ItemCard(
                 modifier = Modifier
                     .weight(1f)
             ) {
-                Text(text = todo.todoText)
+                Text(
+                    text = todo.todoText,
+                    fontFamily = montserratFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 20.sp
+                )
             }
             IconButton(onClick = onDelete) {
                 Icon(
